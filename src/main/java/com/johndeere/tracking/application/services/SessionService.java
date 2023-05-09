@@ -1,5 +1,7 @@
 package com.johndeere.tracking.application.services;
 
+import java.util.UUID;
+
 import com.johndeere.tracking.domain.entities.Session;
 import com.johndeere.tracking.domain.repositories.ISessionRepository;
 
@@ -16,6 +18,8 @@ public class SessionService implements ISessionService {
 	}
 	
 	public Session save(Session session) {
+		String sessionId = UUID.randomUUID().toString();
+		session.setSessionId(sessionId);
 		return sessionRepository.save(session);
 	}
 	

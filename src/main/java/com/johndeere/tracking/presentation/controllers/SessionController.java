@@ -3,6 +3,7 @@ package com.johndeere.tracking.presentation.controllers;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,10 +28,10 @@ public class SessionController implements ISessionController {
 		return new ResponseEntity<>(result, HttpStatus.CREATED);
 	}
 
-	@Override
+	@PutMapping("/end")
 	public ResponseEntity<Session> endSession(@RequestBody Session session) {
-		// TODO Auto-generated method stub
-		return null;
+		Session result = sessionService.update(session);
+		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 
 }

@@ -9,9 +9,8 @@ public class SessionMapper implements ISessionMapper {
 
 	@Override
 	public SessionEntity toSessionEntity(Session session) {
-		String sessionId = UUID.randomUUID().toString();
 		return SessionEntity.builder()
-				.sessionId(sessionId)
+				.sessionId(session.getSessionId())
 				.userId(session.getUserId())
 				.machineId(session.getMachineId())
 				.startAt(session.getStartAt())
