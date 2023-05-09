@@ -1,23 +1,30 @@
 package com.johndeere.tracking.infrasctructure.entities;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-@Builder
 @Entity
 @Table(name = "sessions")
+@Builder
+@Data
+@NoArgsConstructor     
+@AllArgsConstructor    // Hibernate needs this constructors
 public class SessionEntity {
 
 	@Id
 	private String sessionId;
 	
 	@Column(name = "start_at")
-	private LocalDateTime startAt;
+	private Date startAt;
 	
 	@Column(name = "end_at")
-	private LocalDateTime endAt;
+	private Date endAt;
 	
 	@Column(name = "user_id")
 	private String userId;
@@ -27,54 +34,5 @@ public class SessionEntity {
 	
 	@Column(name = "org_id")
 	private int orgId;
-
-	public String getSessionId() {
-		return sessionId;
-	}
-
-	public void setSessionId(String sessionId) {
-		this.sessionId = sessionId;
-	}
-
-	public LocalDateTime getStartAt() {
-		return startAt;
-	}
-
-	public void setStartAt(LocalDateTime startAt) {
-		this.startAt = startAt;
-	}
-
-	public LocalDateTime getEndAt() {
-		return endAt;
-	}
-
-	public void setEndAt(LocalDateTime endAt) {
-		this.endAt = endAt;
-	}
-
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
-	public String getMachineId() {
-		return machineId;
-	}
-
-	public void setMachineId(String machineId) {
-		this.machineId = machineId;
-	}
-
-	public int getOrgId() {
-		return orgId;
-	}
-
-	public void setOrgId(int orgId) {
-		this.orgId = orgId;
-	}
-	
 	
 }

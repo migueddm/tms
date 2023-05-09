@@ -12,7 +12,9 @@ public class SessionConfiguration {
 	
 	@Bean
 	ISessionService sessionService(final ISessionRepository sessionRepository) {
-		return new SessionService(sessionRepository);
+		return SessionService.builder().sessionRepository(sessionRepository).build();
 	}
+	
+	
 
 }

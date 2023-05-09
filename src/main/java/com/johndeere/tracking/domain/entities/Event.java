@@ -2,6 +2,9 @@ package com.johndeere.tracking.domain.entities;
 
 import java.time.LocalDateTime;
 
+import lombok.Data;
+
+@Data
 public class Event {
 
 	private String eventId;
