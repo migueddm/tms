@@ -23,8 +23,8 @@ public class SessionController implements ISessionController {
 	
 	@PostMapping("/create")
 	public ResponseEntity<Session> createSession(@RequestBody Session session) {
-		sessionService.save(session);
-		return new ResponseEntity<>(session, HttpStatus.CREATED);
+		Session result = sessionService.save(session);
+		return new ResponseEntity<>(result, HttpStatus.CREATED);
 	}
 
 	@Override

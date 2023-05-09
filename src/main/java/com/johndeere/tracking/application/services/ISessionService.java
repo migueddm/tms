@@ -6,7 +6,7 @@ public interface ISessionService {
 	
 	public Session findById(String sessionId);
 	
-	public void save(Session session);
+	public Session save(Session session);
 	
-	public void update(Session session);
+	public Session update(Session session);
 }
