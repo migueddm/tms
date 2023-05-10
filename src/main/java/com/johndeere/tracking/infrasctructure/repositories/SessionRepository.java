@@ -1,7 +1,5 @@
 package com.johndeere.tracking.infrasctructure.repositories;
 
-import java.util.Optional;
-
 import org.springframework.stereotype.Repository;
 import com.johndeere.tracking.infrasctructure.entities.SessionEntity;
 import com.johndeere.tracking.infrastructure.mappers.ISessionMapper;

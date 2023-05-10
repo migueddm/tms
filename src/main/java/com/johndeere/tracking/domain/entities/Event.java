@@ -1,6 +1,6 @@
 package com.johndeere.tracking.domain.entities;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +13,7 @@ public class Event {
 	
 	private String sessionId;
 	
-	private LocalDateTime eventAt;
+	private Date eventAt;
 	
 	private String eventType;
 	

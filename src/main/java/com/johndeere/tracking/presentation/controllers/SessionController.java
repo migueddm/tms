@@ -12,15 +12,14 @@ import com.johndeere.tracking.application.ports.ISessionController;
 import com.johndeere.tracking.application.services.ISessionService;
 import com.johndeere.tracking.domain.entities.Session;
 
+import lombok.Builder;
+
 @RestController
 @RequestMapping("/sessions")
+@Builder
 public class SessionController implements ISessionController {
 
 	private final ISessionService sessionService;
-	
-	public SessionController(ISessionService sessionService) {
-		this.sessionService = sessionService;
-	}	
 	
 	@PostMapping("/create")
 	public ResponseEntity<Session> createSession(@RequestBody Session session) {
