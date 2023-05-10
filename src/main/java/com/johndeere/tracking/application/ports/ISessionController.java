@@ -8,5 +8,5 @@ public interface ISessionController {
 
 	ResponseEntity<Session> createSession(Session session);
 	
-	ResponseEntity<Session> endSession(Session session);
+	ResponseEntity<Session> endSession(String sessionId, Session session);
 }

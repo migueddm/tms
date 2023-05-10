@@ -2,6 +2,7 @@ package com.johndeere.tracking.presentation.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,14 +22,14 @@ public class SessionController implements ISessionController {
 
 	private final ISessionService sessionService;
 	
-	@PostMapping("/create")
+	@PostMapping("")
 	public ResponseEntity<Session> createSession(@RequestBody Session session) {
 		Session result = sessionService.save(session);
 		return new ResponseEntity<>(result, HttpStatus.CREATED);
 	}
 
-	@PutMapping("/end")
-	public ResponseEntity<Session> endSession(@RequestBody Session session) {
+	@PutMapping("/{sessionId}")
+	public ResponseEntity<Session> endSession(@PathVariable String sessionId, @RequestBody Session session) {
 		Session result = sessionService.update(session);
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
