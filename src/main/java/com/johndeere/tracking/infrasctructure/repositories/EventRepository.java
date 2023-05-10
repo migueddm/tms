@@ -40,7 +40,9 @@ public class EventRepository implements IEventRepository{
 
 	@Override
 	public void saveAll(List<Event> events) {
-		// TO-DO
+		List<EventEntity> eventsEntity = new ArrayList<>();
+		events.forEach(e -> eventsEntity.add(eventMapper.toEventEntity(e)));
+		jpaEventRepository.saveAll(eventsEntity);
 	}
 
 	@Override

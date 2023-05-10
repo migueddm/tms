@@ -1,5 +1,6 @@
 package com.johndeere.tracking.application.services;
 
+import java.util.List;
 import java.util.UUID;
 
 import com.johndeere.tracking.domain.entities.Event;
@@ -22,5 +23,15 @@ public class EventService implements IEventService {
 		event.setEventId(eventId);
 		return eventRepository.save(event);
 	}
+
+	@Override
+	public void saveAll(List<Event> events) {
+		events.forEach(e -> {
+			String eventId = UUID.randomUUID().toString();
+			e.setEventId(eventId);
+		});
+		eventRepository.saveAll(events);
+	}
 	
+
 }
